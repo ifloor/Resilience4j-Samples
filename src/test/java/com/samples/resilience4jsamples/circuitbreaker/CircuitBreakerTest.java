@@ -18,11 +18,11 @@ public class CircuitBreakerTest {
     public void circuitBreakShowcase() {
         CircuitBreakerConfig config = CircuitBreakerConfig.custom()
                 .failureRateThreshold(50)
-                .minimumNumberOfCalls(5)
+                .minimumNumberOfCalls(10)
                 .automaticTransitionFromOpenToHalfOpenEnabled(true)
                 .waitDurationInOpenState(Duration.of(5, ChronoUnit.SECONDS))
-                .permittedNumberOfCallsInHalfOpenState(3)
-                .slidingWindowSize(10)
+                .permittedNumberOfCallsInHalfOpenState(30)
+                .slidingWindowSize(100)
                 .slidingWindowType(CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
                 .build();
 
