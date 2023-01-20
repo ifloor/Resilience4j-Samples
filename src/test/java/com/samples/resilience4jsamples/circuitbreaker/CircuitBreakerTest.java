@@ -29,8 +29,7 @@ public class CircuitBreakerTest {
         CircuitBreaker circuitBreaker = CircuitBreaker.of("CircuitBreakerService", config);
 
 
-        Supplier<String> decoratedProcessing = io.github.resilience4j.circuitbreaker.CircuitBreaker
-                .decorateSupplier(circuitBreaker, CircuitBreakerTest::backendProcessing);
+        Supplier<String> decoratedProcessing = CircuitBreaker.decorateSupplier(circuitBreaker, CircuitBreakerTest::backendProcessing);
 
         /*Retry retry = Retry.ofDefaults("CircuitBreakerService");
         decoratedProcessing = Retry.decorateSupplier(retry, decoratedProcessing);*/
