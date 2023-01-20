@@ -15,7 +15,7 @@ resilience4j:
   circuitbreaker:
     instances:
       CircuitBreakerService:
-        failure-rate-threshold: 50
+        failure-rate-threshold: 10
         minimum-number-of-calls: 5
         automatic-transition-from-open-to-half-open-enabled: true
         wait-duration-in-open-state: 5s
